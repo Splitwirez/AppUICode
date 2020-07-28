@@ -1,0 +1,70 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ProjectConwayUI.ViewModels;assembly=ProjectConwayUI"
+        xmlns:views="clr-namespace:ProjectConwayUI.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+         
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+        x:Class="ProjectConwayUI.Views.MainWindow"
+        Icon="/Assets/DonutPlaceholder.ico"
+        Title="ProjectConwayUI  (V0.05-RubyForge)">
+ 
+  
+  
+  
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid ColumnDefinitions="*, auto" RowDefinitions="*, 200, Auto">
+    <!--2 rows cause second row stores the main application-->
+    <Grid  ColumnDefinitions="*, *, *, *" RowDefinitions="*" Grid.Column="2">
+      <Button Grid.Row="0" Grid.Column="3" Height="30" Width="30"  >
+
+        <Button.Background>
+          <ImageBrush Source="/Assets/MenuButtonPlaceholder.jpg"></ImageBrush>
+        </Button.Background>
+
+        MenuPlaceholder
+
+      </Button>
+      <Button Grid.Row="0" Grid.Column="2" Width="30"  Height="30">
+
+        <Button.Background>
+          <ImageBrush Source="/Assets/HelpButtonPlaceholder.jpg"></ImageBrush>
+        </Button.Background>
+
+        Help Placeholder
+
+      </Button>
+      <Image Grid.Row="0" Grid.Column="1" Width="350" Height="30" Stretch="Fill" Source="/Assets/placeholderSpacer.jpg"></Image>
+
+      <Button Grid.Row="0" Grid.Column="0"  Width="100" Height="30" >
+
+        <Button.Background>
+          <ImageBrush  Source="/Assets/PlaceholderLogo.jpg"   ></ImageBrush>
+        </Button.Background>
+
+
+
+      </Button>
+    </Grid>
+    <!--Time for the interesting part ofthe application (no offense avaloniaUI pain-in-the-neck buttons-->
+
+    <DockPanel Grid.Row="1" Grid.Column="1">
+      <!--PLEASE, PLEASE, PLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEAAAAAAAAASSSSSSSSSSEEEEE work, Please **fades into insanity-->
+      <ListBox Grid.Row="0" Grid.Column="0" Name="ListOfItems" Items="{Binding Items}" />
+    
+    </DockPanel>
+    <Button Grid.Row="2" Grid.Column="1" Content="Add Items" Command="{Binding AddItemsCmd}"/>
+
+
+
+    <!--SemiCrappySidebar (TM)-->
+  
+    
+  </Grid>
+</Window>
+
